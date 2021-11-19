@@ -1,10 +1,17 @@
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import {
-    Animated, StatusBar, StatusBarProps, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle
+    Animated,
+    StatusBar,
+    StatusBarProps,
+    StyleSheet,
+    Text,
+    TextStyle,
+    TouchableOpacity,
+    View,
+    ViewStyle
 } from 'react-native';
 import { SvgIcon, SvgPath } from '~/components';
-
 
 interface Props {
     StatusBarProps?: StatusBarProps;
@@ -55,11 +62,7 @@ export default (props: Props) => {
                             navigation.goBack();
                         }
                     }}>
-                    <SvgIcon
-                        name={SvgPath.back}
-                        size={17}
-                        color={isTransparent ? '#fff' : '#202020'}
-                    />
+                    <SvgIcon name={SvgPath.back} size={20} color={isTransparent ? '#fff' : '#202020'} />
                 </TouchableOpacity>
             );
         }
@@ -94,12 +97,7 @@ export default (props: Props) => {
         } else if (title) {
             return (
                 <Animated.View style={[styles.center, centerStyle]}>
-                    <Text
-                        style={[
-                            styles.title,
-                            { color: isTransparent ? '#fff' : '#202020' },
-                            titleStyle,
-                        ]}>
+                    <Text style={[styles.title, { color: isTransparent ? '#fff' : '#202020' }, titleStyle]}>
                         {title}
                     </Text>
                 </Animated.View>
@@ -109,8 +107,7 @@ export default (props: Props) => {
     const isFocused = useIsFocused();
 
     return (
-        <View
-            style={[styles.navBar, isTransparent && styles.transparent, navBarStyle]}>
+        <View style={[styles.navBar, isTransparent && styles.transparent, navBarStyle]}>
             {isFocused ? <StatusBar {...StatusBarProps} /> : null}
             <View style={styles.header}>
                 <View style={[styles.headerSide, styles.sideLeft]}>{headerLeft}</View>

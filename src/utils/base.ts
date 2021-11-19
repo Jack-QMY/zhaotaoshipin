@@ -8,4 +8,3 @@ const isAndroid = Platform.OS === 'android';
 const isIOS = Platform.OS === 'ios';
 
 export { sw, sh, ww, wh, isPad, isAndroid, isIOS };
-

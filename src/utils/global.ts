@@ -15,7 +15,8 @@ Global.percent = scale.percent;
 Global.Device = device;
 // App主题
 Global.Theme = theme;
-
+// 用户token
+Global.TOKEN = null;
 //设备辅助
 Global.sw = sw;
 Global.sh = sh;

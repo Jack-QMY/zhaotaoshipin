@@ -1,9 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-export default function index() {
+import { NavBarHeader } from '~/components';
+// 注册页面
+export default function Register() {
     return (
         <View style={styles.container}>
-            <Text>个人页面</Text>
+            <NavBarHeader title="注册页" />
+            <Text>注册页面</Text>
         </View>
     );
 }

@@ -2,7 +2,7 @@ import { name } from '!/app.json';
 import { NavigationContainer, NavigationContext, useNavigation, useRoute } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 import React from 'react';
-// import { appStore } from '~/store';
+import { appStore } from '~/store';
 import { isReadyRef, navigationRef } from '~/utils';
 import BottomTabNavigator from './BottomTabNavigator';
 import SCREENS from './routers';
@@ -36,7 +36,7 @@ export default () => {
             linking={{ prefixes: [`${name}://`] }}
             onStateChange={() => {
                 const currentRouteName = navigationRef.current.getCurrentRoute().name;
-                // appStore.currentRouteName = currentRouteName;
+                appStore.currentRouteName = currentRouteName;
             }}>
             <Stack.Navigator initialRouteName="Main" headerMode="none">
                 <Stack.Screen name="Main" component={BottomTabNavigator} />

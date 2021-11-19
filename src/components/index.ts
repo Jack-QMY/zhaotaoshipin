@@ -1,5 +1,3 @@
-export { default as NavBarHeader } from './NavbarHeader';
-export { default as Notice } from './Notice';
-export { SvgIcon, SvgPath } from './SvgIcon';
-
+export { default as NavBarHeader } from './NavbarHeader'; //头部
+export { SvgIcon, SvgPath } from './SvgIcon'; //svg使用
 

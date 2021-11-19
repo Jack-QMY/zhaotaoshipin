@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
 interface Props {

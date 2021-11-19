@@ -14,6 +14,7 @@ import {
     View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { userStore } from '~/store';
 
 type Props = {
     state: any;
@@ -58,7 +59,6 @@ export default function BottomTabBar(props: Props) {
         state,
         navigation,
         descriptors,
-        activeBackgroundColor,
         activeTintColor,
         adaptive = true,
         allowFontScaling,
@@ -83,15 +83,11 @@ export default function BottomTabBar(props: Props) {
 
     const [isKeyboardShown, setIsKeyboardShown] = React.useState(false);
 
-    const shouldShowTabBar =
-        focusedOptions.tabBarVisible !== false &&
-        !(keyboardHidesTabBar && isKeyboardShown);
+    const shouldShowTabBar = focusedOptions.tabBarVisible !== false && !(keyboardHidesTabBar && isKeyboardShown);
 
     const [isTabBarHidden, setIsTabBarHidden] = React.useState(!shouldShowTabBar);
 
-    const [visible] = React.useState(
-        () => new Animated.Value(shouldShowTabBar ? 1 : 0),
-    );
+    const [visible] = React.useState(() => new Animated.Value(shouldShowTabBar ? 1 : 0));
     React.useEffect(() => {
         if (shouldShowTabBar) {
             Animated.timing(visible, {
@@ -156,7 +152,7 @@ export default function BottomTabBar(props: Props) {
     const handleLayout = (e: LayoutChangeEvent) => {
         const { height, width } = e.nativeEvent.layout;
 
-        setLayout(layout => {
+        setLayout((layout) => {
             if (height === layout.height && width === layout.width) {
                 return layout;
             } else {
@@ -179,11 +175,10 @@ export default function BottomTabBar(props: Props) {
         const focused = index === state.index;
         const { options } = descriptors[route.key];
         const color = focused ? activeTintColor : inactiveTintColor;
-        const tabBarLabel =
-            descriptors[route.key].options.tabBarLabel || route.name;
+        const tabBarLabel = descriptors[route.key].options.tabBarLabel || route.name;
 
         const onPress = () => {
-            if (route.name === 'Personage') {
+            if (!userStore.login && route.name === 'Personage') {
                 navigation.navigate('Login');
             } else {
                 const event = navigation.emit({
@@ -221,9 +216,7 @@ export default function BottomTabBar(props: Props) {
                     activeTintColor={activeTintColor}
                     inactiveTintColor={inactiveTintColor}
                 />
-                <Text style={[styles.label, { color: focused ? '#2b2b2b' : '#BBBBBB' }]}>
-                    {tabBarLabel}
-                </Text>
+                <Text style={[styles.label, { color: focused ? '#2b2b2b' : '#BBBBBB' }]}>{tabBarLabel}</Text>
             </TouchableOpacity>
         );
     });
@@ -259,22 +252,11 @@ export default function BottomTabBar(props: Props) {
         </Animated.View>
     );
 }
-function TabBarIcon({
-    name,
-    focused,
-    translucent,
-    activeTintColor,
-    inactiveTintColor,
-}) {
-    // We render the icon twice at the same position on top of each other:
-    // active and inactive one, so we can fade between them.
+function TabBarIcon({ name, focused, translucent, activeTintColor, inactiveTintColor }) {
     return (
         <View style={styles.tabBarIcon}>
             <View style={styles.icon}>
-                <Image
-                    source={focused ? iconSource[name].active : iconSource[name].inactive}
-                    style={styles.iconSize}
-                />
+                <Image source={focused ? iconSource[name].active : iconSource[name].inactive} style={styles.iconSize} />
             </View>
         </View>
     );
