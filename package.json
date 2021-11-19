@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "0.64.0",
+    "react-native-device-info": "^8.4.8",
+    "react-native-safe-area-context": "^3.1.4",
+    "react-native-extra-dimensions-android": "^1.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
