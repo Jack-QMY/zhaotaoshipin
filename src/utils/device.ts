@@ -34,7 +34,7 @@ export default {
 
     get statusBarHeight(): number {
         if (Platform.OS === 'ios') {
-            //   return this.isLandscape ? 0 : DeviceInfo.hasNotch() ? 34 : 20;
+            return this.isLandscape ? 0 : DeviceInfo.hasNotch() ? 34 : 20;
         } else if (Platform.OS === 'android') {
             return StatusBar.currentHeight ?? 0;
         }
