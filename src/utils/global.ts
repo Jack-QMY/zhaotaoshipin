@@ -1,7 +1,7 @@
 import { isAndroid, isPad, sh, sw, wh, ww } from './base';
 import device from './device';
 import * as scale from './scale';
-
+import theme from './theme';
 
 const Global = global || window || {};
 
@@ -13,6 +13,8 @@ Global.pixel = scale.pixel;
 Global.percent = scale.percent;
 // 设备信息
 Global.Device = device;
+// App主题
+Global.Theme = theme;
 
 //设备辅助
 Global.sw = sw;

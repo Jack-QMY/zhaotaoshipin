@@ -1,17 +1,10 @@
-import { SvgIcon, SvgPath } from '@breeze/icons';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import {
-    Animated,
-    StatusBar,
-    StatusBarProps,
-    StyleSheet,
-    Text,
-    TextStyle,
-    TouchableOpacity,
-    View,
-    ViewStyle
+    Animated, StatusBar, StatusBarProps, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle
 } from 'react-native';
+import { SvgIcon, SvgPath } from '~/components';
+
 
 interface Props {
     StatusBarProps?: StatusBarProps;

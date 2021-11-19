@@ -1,0 +1,16 @@
+{
+    "primaryColor": "#161825",
+    "primaryColorRgb": "254,25,102",
+    "secondaryColor": "#F76D64",
+    "secondaryColorRgb": "247,109,100",
+    "defaultTextColor": "#200706",
+    "secondaryTextColor": "#414A52",
+    "subTextColor": "#A6A6A6",
+    "tintTextColor": "#CBD7E1",
+    "borderColor": "#F1EFFA",
+    "groundColour": "#161825",
+    "navBarBackground": "#FFFFFF",
+    "navBarTitleColor": "#201e33",
+    "navBarMenuColor": "#666666",
+    "navBarSeparatorColor": "#F6F7F9"
+}
