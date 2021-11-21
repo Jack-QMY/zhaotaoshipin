@@ -21,7 +21,6 @@ class UserStore {
         this.me = user;
         this.login = true;
         Storage.setItem(RecordKeys.me, user);
-        Storage.setItem(RecordKeys.notFirstInstall, true);
     }
 
     //退出登录
